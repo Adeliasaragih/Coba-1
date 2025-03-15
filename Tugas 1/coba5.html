@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initials Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Get Your Name Initials</h1>
+    <label for="fullName">Enter your full name:</label>
+    <input type="text" id="fullName" placeholder="First Last" required>
+    <br>
+    <button onclick="generateInitials()">Get Initials</button>
+    <h2 id="result"></h2>
+
+    <script>
+        function generateInitials() {
+            // Get the value from the input field
+            const fullName = document.getElementById('fullName').value;
+
+            // Split the name into parts
+            const nameParts = fullName.split(' ');
+
+            // Extract initials and convert to uppercase
+            const initials = nameParts.map(part => part.charAt(0).toUpperCase()).join('');
+
+            // Display the result
+            document.getElementById('result').innerText = `Your initials: ${initials}`;
+        }
+    </script>
+</body>
+</html>

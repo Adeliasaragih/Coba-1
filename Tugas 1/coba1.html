@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of Rectangle Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculate the Area of a Rectangle</h1>
+    <label for="length">Length:</label>
+    <input type="number" id="length" placeholder="Enter length" required>
+    <br>
+    <label for="width">Width:</label>
+    <input type="number" id="width" placeholder="Enter width" required>
+    <br>
+    <button onclick="calculateArea()">Calculate Area</button>
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateArea() {
+            // Get the values from the input fields
+            const length = parseFloat(document.getElementById('length').value);
+            const width = parseFloat(document.getElementById('width').value);
+
+            // Validate input
+            if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+                document.getElementById('result').innerText = "Please enter valid positive numbers for length and width.";
+                return;
+            }
+
+            // Calculate the area
+            const area = length * width;
+
+            // Display the result
+            document.getElementById('result').innerText = `Area of the rectangle: ${area} square units`;
+        }
+    </script>
+</body>
+</html>

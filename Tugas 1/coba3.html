@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle Angle Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculate the Third Angle of a Triangle</h1>
+    <label for="angle1">Angle 1:</label>
+    <input type="number" id="angle1" placeholder="Enter first angle" required>
+    <br>
+    <label for="angle2">Angle 2:</label>
+    <input type="number" id="angle2" placeholder="Enter second angle" required>
+    <br>
+    <button onclick="calculateThirdAngle()">Calculate Third Angle</button>
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateThirdAngle() {
+            // Get the values from the input fields
+            const angle1 = parseFloat(document.getElementById('angle1').value);
+            const angle2 = parseFloat(document.getElementById('angle2').value);
+
+            // Check if the angles are valid
+            if (angle1 <= 0 || angle2 <= 0 || angle1 + angle2 >= 180) {
+                document.getElementById('result').innerText = "Please enter valid angles.";
+                return;
+            }
+
+            // Calculate the third angle
+            const thirdAngle = 180 - (angle1 + angle2);
+
+            // Display the result
+            document.getElementById('result').innerText = `Third angle of the triangle: ${thirdAngle}°`;
+        }
+    </script>
+</body>
+</html>
